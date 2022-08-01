@@ -1,0 +1,14 @@
+version: '2'
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ./config.properties
+    ports:
+      - "3306:3306"
+    volumes:
+      #- /etc/localtime:/etc/localtime:ro
+      #- /etc/timezone:/etc/timezone:ro
+      #- ./dev/createDatabase.sql:/docker-entrypoint-initdb.d/createDatabase.sql
+      - ./dev/createDatabase.sql:/docker-entrypoint-initdb.d/createDatabase.sql

@@ -1,0 +1,7 @@
+version: '2'
+services:
+  redis:
+    image: daocloud.io/library/redis
+    ports:
+      - 6380:6379
+    restart: always

@@ -1,0 +1,17 @@
+version: '2'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/:/usr/local/openresty/nginx/conf/
+#      - ./certificate/:/usr/local/certificate/
+      - ./logs/:/usr/local/nginx/logs/
+#    volumes_from:
+#      - fastcgi-nginx-php
+#    links:
+#      - fastcgi-nginx-php:fastcgi-nginx-php
+    ports:
+      - 80:80
+      - 443:443
